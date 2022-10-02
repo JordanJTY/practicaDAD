@@ -1,0 +1,21 @@
+<ul id="menu">
+    <li><span> </span></li>
+    <li routerLink="/list"><span>En Web</span></li>
+    <li routerLink="/us"><span>Acerca de</span></li>
+    <li id="acceso" *ngIf="miToken == 0" class="acceso" routerLink="/login"><span>Acceso</span></li>
+
+    <li id="acceso" *ngIf="miToken != 0" class="acceso" (click)="logout()">
+        <span>
+            <strong>Usuario:</strong> {{ userName }}
+            <img src="https://cdn-icons-png.flaticon.com/512/1243/1243950.png" width="25" height="25"></span>
+    </li>
+</ul>
+
+<!-- <ul id="menu">
+    <li><span> </span></li>
+    <li routerLink="/listado"><span>Blog</span></li>
+    <li routerLink="/nosotros"><span>Acerca de</span></li>
+    <li id="acceso" *ngIf="miToken == 0" class="acceso" routerLink="/login"><span>Acceso</span></li>
+    <li id="acceso" *ngIf="miToken != 0" class="acceso" (click)="logout()"><span><strong>Usuario:</strong>
+            {{ nombreUsuario }}</span></li>
+</ul> -->

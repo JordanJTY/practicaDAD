@@ -1,0 +1,8 @@
+#entree {
+    background-color: darkgray;
+    border-radius: 10px;
+}
+
+#entree * {
+    padding: 5px;
+}
