@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-menu',
@@ -23,11 +24,27 @@ export class MenuComponent implements OnInit {
       this.userName = localStorage.getItem('userName');
     }
   }
+  // fin de pregunta estas seguro?
 
   public logout(): void {
     if (localStorage.getItem('personalToken')) {
-      localStorage.removeItem('personalToken');
+      Swal.fire({
+        title: '¿Estas seguro?',
+        text: '¿Quieres cerrar sesión?',
+        icon: 'warning',
+        confirmButtonText: 'CONFIRMAR',
+        cancelButtonText: 'Cancelar. No cerrar.',
+      }).then(respuesta => {
+        if (respuesta.isConfirmed) {
+          if (localStorage.getItem('personalToken')) {
+            localStorage.removeItem('personalToken');
+          }
+          Swal.fire('Proceso terminado. Logout OK').then(respuesta => {
+            window.location.reload();
+          });
+        }
+      })
     }
-    window.location.reload();
+    
   }
 }
