@@ -11,6 +11,7 @@ import { AboutUsComponent } from './views/about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './views/login/login.component';
+import { LoadScriptsService } from './shared/services/load-scripts.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { LoginComponent } from './views/login/login.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoadScriptsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
